@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Home from './screens/Home/Home';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello Weather app</Text>
+      <Home/>
     </View>
   );
 }

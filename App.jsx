@@ -5,7 +5,7 @@ import bg from "./assets/background.png";
 import { appStyle } from "./app.style";
 export default function App() {
   return (
-    <ImageBackground source={bg} style={appStyle.app}>
+    <ImageBackground source={bg} style={appStyle.imageContainer} imageStyle={appStyle.appImageStyle}>
       <SafeAreaProvider >
         <SafeAreaView style={appStyle.app}>
           <Home />

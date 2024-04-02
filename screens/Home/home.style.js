@@ -4,15 +4,15 @@ const s = StyleSheet.create({
         backgroundColor:'red',
         flex:1,
     },
-    header:{
-        flex:1,
+    weatherBasic:{
+        flex:2,
         backgroundColor:'yellow',
     },
-    body:{
-        flex:1,
+    searchContainer:{
+        flex:2,
         backgroundColor:'green',
     },
-    footer:{
+    weatherAdvanced:{
         backgroundColor:'lightgray',
         flex:1
     }

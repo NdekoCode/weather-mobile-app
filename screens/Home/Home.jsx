@@ -4,15 +4,15 @@ const Home = () => {
     console.log("Load")
   return (
     <View style={s.container}>
-        <View style={s.header}>
+        <View style={s.weatherBasic}>
             <Text>Home Header meteo Basic</Text>
         </View>
 
-        <View style={s.body}>
+        <View style={s.searchContainer}>
             <Text>Home Body Search Bar</Text>
         </View>
 
-        <View style={s.footer}>
+        <View style={s.weatherAdvanced}>
             <Text>Home footer Meto Avancer Bar</Text>
         </View>
     </View>

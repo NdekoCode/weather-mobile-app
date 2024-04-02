@@ -1,14 +1,16 @@
-import { StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 import Home from "./screens/Home/Home";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-
+import bg from "./assets/background.png";
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <SafeAreaView  style={styles.app}>
-        <Home />
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <ImageBackground source={bg} style={styles.app}>
+      <SafeAreaProvider >
+        <SafeAreaView style={styles.app}>
+          <Home />
+        </SafeAreaView>
+      </SafeAreaProvider>
+    </ImageBackground>
   );
 }
 

@@ -4,8 +4,8 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() {
   return (
-    <SafeAreaProvider style={styles.container}>
-      <SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView  style={styles.app}>
         <Home />
       </SafeAreaView>
     </SafeAreaProvider>
@@ -13,10 +13,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  app: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });

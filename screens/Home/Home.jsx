@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import WeatherAPI from "../../api/weather";
 const Home = () => {
   const [coords, setCoords] = useState(null);
-const [weatherData,setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
   const getUserCoords = async () => {
     // Cette ligne va nous declencher un popup pour nous demander si on autorise à l'application d'acceder à nos coordonner (aux coordonnées de localisation de notre telephone)
     const permission = await requestForegroundPermissionsAsync(); // Nous on va juste recuperer le status avec permission.status.
@@ -25,24 +25,32 @@ const [weatherData,setWeatherData] = useState(null);
       setCoords({ latitude: -4.33, longitude: 15.30935141211334 });
     }
   };
+
   const fetchWeather = async () => {
     const data = await WeatherAPI.fetchWeatherFromCoords(coords);
-    setWeatherData(data);
+    if (data) {
+      setWeatherData(data);
+    }
   };
+
   useEffect(() => {
     (async () => {
       await getUserCoords();
     })();
   }, []);
+
   useEffect(() => {
     (async () => {
       await fetchWeather();
     })();
   }, [coords]);
+
   console.log(coords);
+  9;
   return (
     <View style={s.container}>
       <View style={s.weatherBasic}>
+        {weatherData && <Text>{JSON.stringify(weatherData)}</Text>}
         <Text>Home Header meteo Basic</Text>
       </View>
 

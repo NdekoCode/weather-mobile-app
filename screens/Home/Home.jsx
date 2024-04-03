@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { s } from "./home.style";
 // Pour demander les permissions quand l'application est lancer.
 import {
@@ -52,15 +52,15 @@ const Home = () => {
     <View style={s.container}>
       <View style={s.weatherBasic}>
         {weatherData && <TextWrapper>{JSON.stringify(weatherData)}</TextWrapper>}
-        <Text>Home Header meteo Basic</Text>
+        <TextWrapper>Home Header meteo Basic</TextWrapper>
       </View>
 
       <View style={s.searchContainer}>
-        <Text>Home Body Search Bar</Text>
+        <TextWrapper>Home Body Search Bar</TextWrapper>
       </View>
 
       <View style={s.weatherAdvanced}>
-        <Text>Home footer Meto Avancer Bar</Text>
+        <TextWrapper>Home footer Meto Avancer Bar</TextWrapper>
       </View>
     </View>
   );

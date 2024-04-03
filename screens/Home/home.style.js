@@ -5,6 +5,9 @@ const s = StyleSheet.create({
     },
     weatherBasic:{
         flex:2,
+        text:{
+            fontFamily:'Alata-Regular'
+        }
     },
     searchContainer:{
         flex:2,

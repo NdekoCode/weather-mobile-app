@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <View style={s.container}>
       <View style={s.weatherBasic}>
-        {weatherData && <Text>{JSON.stringify(weatherData)}</Text>}
+        {weatherData && <Text style={s.weatherBasic.text}>{JSON.stringify(weatherData)}</Text>}
         <Text>Home Header meteo Basic</Text>
       </View>
 

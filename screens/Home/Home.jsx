@@ -7,6 +7,7 @@ import {
 } from "expo-location";
 import { useEffect, useState } from "react";
 import WeatherAPI from "../../api/weather";
+import TextWrapper from "../../components/TextWrapper/TextWrapper";
 const Home = () => {
   const [coords, setCoords] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
@@ -50,7 +51,7 @@ const Home = () => {
   return (
     <View style={s.container}>
       <View style={s.weatherBasic}>
-        {weatherData && <Text style={s.weatherBasic.text}>{JSON.stringify(weatherData)}</Text>}
+        {weatherData && <TextWrapper>{JSON.stringify(weatherData)}</TextWrapper>}
         <Text>Home Header meteo Basic</Text>
       </View>
 

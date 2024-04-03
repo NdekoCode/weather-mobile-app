@@ -29,3 +29,9 @@ This application was created to deepen my knowledge of React Native and to train
 - Manage navigation in a mobile application
 - Apply responsive designs with React Native
 - Potentially using Redux for state management
+
+## Resources
+
+API_URL= https://api.open-meteo.com/v1/forecast
+
+Exemple: <https://api.open-meteo.com/v1/forecast?latitude=-1.94&longitude=30.06&daily=weathercode,temperature_2m_max,sunrise,sunset,wind_speed_10m_max&timezone=auto&current_weather=true>

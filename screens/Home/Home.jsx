@@ -12,23 +12,25 @@ const Home = () => {
   const getUserCoords = async () => {
     // Cette ligne va nous declencher un popup pour nous demander si on autorise à l'application d'acceder à nos coordonner (aux coordonnées de localisation de notre telephone)
     const permission = await requestForegroundPermissionsAsync(); // Nous on va juste recuperer le status avec permission.status.
-    console.log(permission);
     const status = permission.status; // status peut avoir deux valeurs: "granted" si l'utilisateur a autorisé ou "no";
+
     if (status === "granted") {
-      const {coords} = await getCurrentPositionAsync();
-      const {longitude,latitude} = coords;
-      setCoords((prevCoords)=>({...prevCoords,longitude,latitude}));
-      console.log(coords);
+      const { coords } = await getCurrentPositionAsync();
+      const { longitude, latitude } = coords;
+
+      setCoords((prevCoords) => ({ ...prevCoords, longitude, latitude }));
     } else {
       // Si l'utilisateur n'a pas accepter alors je lui suggere les coordonnées de Kinshasa la capital de la RDC.
       setCoords({ latitude: -4.33, longitude: 15.30935141211334 });
     }
   };
-  useEffect(()=>{
-    (async()=>{
-        await getUserCoords();
-    })()
-  },[])
+
+  useEffect(() => {
+    (async () => {
+      await getUserCoords();
+    })();
+  }, []);
+console.log(coords);
   return (
     <View style={s.container}>
       <View style={s.weatherBasic}>

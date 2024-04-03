@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import WeatherAPI from "../../api/weather";
 import TextWrapper from "../../components/TextWrapper/TextWrapper";
+import BasicWeather from "../../components/BasicWeather/BasicWeather";
 const Home = () => {
   const [coords, setCoords] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
@@ -51,8 +52,7 @@ const Home = () => {
   return (
     <View style={s.container}>
       <View style={s.weatherBasic}>
-        {weatherData && <TextWrapper>{JSON.stringify(weatherData)}</TextWrapper>}
-        <TextWrapper>Home Header meteo Basic</TextWrapper>
+        <BasicWeather/>
       </View>
 
       <View style={s.searchContainer}>

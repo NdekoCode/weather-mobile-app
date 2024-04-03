@@ -10,5 +10,6 @@ export const appStyle = StyleSheet.create({
   imageContainer: {
     backgroundColor:'#111',
     flex: 1,
+    padding:20
   },
 });

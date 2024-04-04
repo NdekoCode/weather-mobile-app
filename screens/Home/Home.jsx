@@ -2,8 +2,8 @@ import { View } from "react-native";
 import { s } from "./home.style";
 // Pour demander les permissions quand l'application est lancer.
 import {
-    requestForegroundPermissionsAsync,
-    getCurrentPositionAsync,
+  requestForegroundPermissionsAsync,
+  getCurrentPositionAsync,
 } from "expo-location";
 import { useEffect, useState } from "react";
 import WeatherAPI from "../../api/weather";
@@ -11,7 +11,8 @@ import TextWrapper from "../../components/TextWrapper/TextWrapper";
 import BasicWeather from "../../components/BasicWeather/BasicWeather";
 const Home = () => {
   const [coords, setCoords] = useState(null);
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState({current_weather:null,current_weather_units:null});
+  const basicWeatherData  = {}
   const getUserCoords = async () => {
     // Cette ligne va nous declencher un popup pour nous demander si on autorise à l'application d'acceder à nos coordonner (aux coordonnées de localisation de notre telephone)
     const permission = await requestForegroundPermissionsAsync(); // Nous on va juste recuperer le status avec permission.status.
@@ -46,13 +47,27 @@ const Home = () => {
       await fetchWeather();
     })();
   }, [coords]);
+  if(!weatherData.current_weather){
+    return null;
+  }
+  for(let index in weatherData.current_weather_units){
+    if(index!=="weathercode" && index!=="time"){
+      console.log(basicWeatherData[index]);
+      const intData = parseInt(weatherData.current_weather[index])
+      basicWeatherData[index] =`${intData}${weatherData.current_weather_units[index]}`
 
-  console.log(coords);
-  9;
+    }else{
+      basicWeatherData[index] =weatherData.current_weather[index]
+    }
+    basicWeatherData.city = weatherData.timezone.split("/")[1]
+
+    console.log(basicWeatherData[index]);
+  }
   return (
+  
     <View style={s.container}>
       <View style={s.weatherBasic}>
-        <BasicWeather/>
+        <BasicWeather basicWeatherData={basicWeatherData} />
       </View>
 
       <View style={s.searchContainer}>

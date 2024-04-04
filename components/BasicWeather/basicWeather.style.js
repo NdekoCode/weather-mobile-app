@@ -14,7 +14,7 @@ export const s = StyleSheet.create({
     marginTop:'auto'
   },
   temperature:{
-    fontSize:160,
+    fontSize:120,
   },
   typeText:{
     fontSize:20,

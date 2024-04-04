@@ -4,7 +4,8 @@ import TextWrapper from '../TextWrapper/TextWrapper';
 
 const Clock = ({time}) => {
 
-  const timeFormat = time.split("T")[1];
+    const date = new Date(time);
+    const timeFormat = `${date.getHours()}:${date.getMinutes()}${date.getSeconds()}`;;
   return (
     <View style={clockStyle.timeType}>
       <TextWrapper>{timeFormat}</TextWrapper>

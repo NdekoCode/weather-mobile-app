@@ -24,6 +24,5 @@ export const s = StyleSheet.create({
   image:{
     width:90,
     aspectRatio:1,
-    backgroundColor:'green'
   }
 });

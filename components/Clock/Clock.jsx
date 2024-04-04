@@ -1,11 +1,11 @@
 import { View } from 'react-native';
 import { clockStyle } from './clock.style';
 import TextWrapper from '../TextWrapper/TextWrapper';
+import { formatTime } from '../../services/date.service';
 
 const Clock = ({time}) => {
 
-    const date = new Date(time);
-    const timeFormat = `${date.getHours()}:${date.getMinutes()}${date.getSeconds()}`;;
+    const timeFormat = formatTime(time)
   return (
     <View style={clockStyle.timeType}>
       <TextWrapper>{timeFormat}</TextWrapper>

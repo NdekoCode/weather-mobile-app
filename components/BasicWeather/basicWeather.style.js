@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native";
 
 export const s = StyleSheet.create({
-  timeType:{
-   alignSelf:'flex-end'
-  },
   city:{
     fontSize:40
   },

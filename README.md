@@ -33,5 +33,9 @@ This application was created to deepen my knowledge of React Native and to train
 ## Resources
 
 API_URL= <https://api.open-meteo.com/v1/forecast>
+API_CITY = <https://nominatim.openstreetmap.org/reverse>
 
-Exemple: <https://api.open-meteo.com/v1/forecast?latitude=-1.94&longitude=30.06&daily=weathercode,temperature_2m_max,sunrise,sunset,wind_speed_10m_max&timezone=auto&current_weather=true>
+Exemple:
+
+1. <https://api.open-meteo.com/v1/forecast?latitude=-1.94&longitude=30.06&daily=weathercode,temperature_2m_max,sunrise,sunset,wind_speed_10m_max&timezone=auto&current_weather=true>
+2. <https://nominatim.openstreetmap.org/reverse?format=json&lat=-1.94&lon=30.06>

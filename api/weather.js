@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class WeatherAPI {
   static async fetchWeatherFromCoords(coords) {
-    if (coords!==null) {
+    if (coords !== null) {
       try {
         const data = (
           await axios.get(
@@ -12,18 +12,25 @@ export default class WeatherAPI {
 
         return data;
       } catch (error) {
-        console.warn("Error on fetching weather data");
+        console.warn("Error on fetching weather data", error);
         return null;
       }
     }
   }
-  static async fetchCityFromCoords(coords){
-    try{
-      const {address:{city,suburb,county,country}} = await (axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.latitude}&lon=${coords.longitude}`)).data;
-      return city || suburb || county || country
-    }catch(error){
-      console.warn("Error on fetching city data");
-      return null
+  static async fetchCityFromCoords(coords) {
+    console.log(coords);
+    if (coords !== null) {
+      const URL = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.latitude}&lon=${coords.longitude}`;
+      console.log(URL);
+      try {
+        const {
+          address: { city, suburb, county, country },
+        } = (await axios.get(URL)).data;
+        return city || suburb || county.split(" ")[0] || country;
+      } catch (error) {
+        console.warn("Error on fetching city data", error);
+        return null;
+      }
     }
   }
 }

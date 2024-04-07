@@ -3,14 +3,14 @@ import TextWrapper from "../TextWrapper/TextWrapper";
 import { s } from "./basicWeather.style";
 import { getWeatherInterpretation } from "../../services/weather.service";
 import Clock from "../Clock/Clock";
-const BasicWeather = ({ basicWeatherData }) => {
+const BasicWeather = ({ basicWeatherData,weatherLocation }) => {
   const temperature = basicWeatherData.temperature;
   const weatherCode = getWeatherInterpretation(basicWeatherData.weathercode);
   return (
     <>
 
       <Clock time={basicWeatherData.time}/>
-      <TextWrapper style={s.city}>{basicWeatherData.city}</TextWrapper>
+      <TextWrapper style={s.city}>{weatherLocation}</TextWrapper>
       {weatherCode?.label && (
         <TextWrapper style={s.typeText}>{weatherCode?.label}</TextWrapper>
       )}

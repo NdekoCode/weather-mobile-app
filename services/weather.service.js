@@ -28,6 +28,5 @@ export const WEATHER_INTERPRATIONS = [
   },
 ];
 export const getWeatherInterpretation = (code)=>{
-  console.log(code)
   return WEATHER_INTERPRATIONS.find(w=>w.codes.includes(code))
 }

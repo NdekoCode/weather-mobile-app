@@ -19,8 +19,8 @@ export default class WeatherAPI {
   }
   static async fetchCityFromCoords(coords){
     try{
-      const data = await (axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.latitude}&lon=${coords.longitude}`)).data;
-      return data
+      const {address:{city,suburb,county,country}} = await (axios.get(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.latitude}&lon=${coords.longitude}`)).data;
+      return city || suburb || county || country
     }catch(error){
       console.warn("Error on fetching city data");
       return null

@@ -12,9 +12,6 @@ const s = StyleSheet.create({
     searchContainer:{
         flex:2,
     },
-    weatherAdvanced:{
-        flex:1
-    }
 
 })
 export {s}

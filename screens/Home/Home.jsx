@@ -15,6 +15,7 @@ const Home = () => {
   const [weatherData, setWeatherData] = useState({
     current_weather: null,
     current_weather_units: null,
+    daily:null
   });
   const [weatherLocation, setWeatherLocation] = useState("");
   const basicWeatherData = {};
@@ -84,7 +85,7 @@ const Home = () => {
       <View style={s.searchContainer}>
         <TextWrapper>Home Body Search Bar</TextWrapper>
       </View>
-      <WeatherAdvanced />
+      <WeatherAdvanced dailyData={weatherData.daily} wind={weatherData.current_weather.windspeed} />
     </View>
   );
 };

@@ -1,20 +1,21 @@
 import { View } from "react-native";
 import { s } from "./weatherAdvanced.style";
+import TextWrapper from "../TextWrapper/TextWrapper";
 const WeatherAdvanced = () => {
   return (
     <View style={s.weatherAdvanced}>
-      <View>
-        <TextWrapper>SunRise Clock</TextWrapper>
-        <TextWrapper>SunRise</TextWrapper>
+      <View style={s.view}>
+        <TextWrapper style={s.text}>SunRise Clock</TextWrapper>
+        <TextWrapper style={s.text}>SunRise</TextWrapper>
       </View>
-      <View>
-        <TextWrapper>SunSet Clock</TextWrapper>
-        <TextWrapper>SunSet</TextWrapper>
+      <View style={s.view}>
+        <TextWrapper style={s.text}>SunSet Clock</TextWrapper>
+        <TextWrapper style={s.text}>SunSet</TextWrapper>
       </View>
 
-      <View>
-        <TextWrapper>Wind SPeed Value</TextWrapper>
-        <TextWrapper>Wind Speed</TextWrapper>
+      <View style={s.view}>
+        <TextWrapper style={s.text}>Wind SPeed Value</TextWrapper>
+        <TextWrapper style={s.text}>Wind Speed</TextWrapper>
       </View>
     </View>
   );

@@ -4,21 +4,17 @@ import TextWrapper from "../TextWrapper/TextWrapper";
 const WeatherAdvanced = () => {
   return (
     <View style={s.weatherAdvanced}>
-      <View style={s.view}>
-        <TextWrapper style={s.text}>SunRise Clock</TextWrapper>
-        <TextWrapper style={s.text}>SunRise</TextWrapper>
-      </View>
-      <View style={s.view}>
-        <TextWrapper style={s.text}>SunSet Clock</TextWrapper>
-        <TextWrapper style={s.text}>SunSet</TextWrapper>
-      </View>
-
-      <View style={s.view}>
-        <TextWrapper style={s.text}>Wind SPeed Value</TextWrapper>
-        <TextWrapper style={s.text}>Wind Speed</TextWrapper>
-      </View>
+      <SubComponent value="SunRise Clock" label="SunRise" />
+      <SubComponent value="SunSet Clock" label="SunSet" />
+      <SubComponent value="Wind SPeed Value" label="Wind Speed" />
     </View>
   );
 };
 
+const SubComponent = ({ value, label }) => (
+  <View style={s.view}>
+    <TextWrapper style={s.firstText}>{value}</TextWrapper>
+    <TextWrapper style={s.text}>{label}</TextWrapper>
+  </View>
+);
 export default WeatherAdvanced;

@@ -10,15 +10,17 @@ import WeatherAPI from "../../api/weather";
 import TextWrapper from "../../components/TextWrapper/TextWrapper";
 import BasicWeather from "../../components/BasicWeather/BasicWeather";
 import WeatherAdvanced from "../../components/WeatherAdvanced/WeatherAdvanced";
+import { useNavigation } from "@react-navigation/native";
 const Home = () => {
   const [coords, setCoords] = useState(null);
   const [weatherData, setWeatherData] = useState({
     current_weather: null,
     current_weather_units: null,
-    daily:null
+    daily: null,
   });
   const [weatherLocation, setWeatherLocation] = useState("");
   const basicWeatherData = {};
+  const router = useNavigation();
   const getUserCoords = async () => {
     // Cette ligne va nous declencher un popup pour nous demander si on autorise à l'application d'acceder à nos coordonner (aux coordonnées de localisation de notre telephone)
     const permission = await requestForegroundPermissionsAsync(); // Nous on va juste recuperer le status avec permission.status.
@@ -73,10 +75,18 @@ const Home = () => {
       basicWeatherData[index] = weatherData.current_weather[index];
     }
   }
+
+  const onNavigation = () => {
+    router.navigate("Forecast", {
+      city: weatherLocation,
+      ...weatherData.daily,
+    });
+  };
   return (
     <View style={s.container}>
       <View style={s.weatherBasic}>
         <BasicWeather
+          onPress={onNavigation}
           basicWeatherData={basicWeatherData}
           weatherLocation={weatherLocation}
         />
@@ -85,7 +95,10 @@ const Home = () => {
       <View style={s.searchContainer}>
         <TextWrapper>Home Body Search Bar</TextWrapper>
       </View>
-      <WeatherAdvanced dailyData={weatherData.daily} wind={weatherData.current_weather.windspeed} />
+      <WeatherAdvanced
+        dailyData={weatherData.daily}
+        wind={weatherData.current_weather.windspeed}
+      />
     </View>
   );
 };

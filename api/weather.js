@@ -18,7 +18,6 @@ export default class WeatherAPI {
     }
   }
   static async fetchCityFromCoords(coords) {
-    console.log(coords);
     if (coords !== null) {
       const URL = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${coords.latitude}&lon=${coords.longitude}`;
       console.log(URL);

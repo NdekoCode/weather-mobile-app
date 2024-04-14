@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native';
+import Heading from '../../components/Heading/Heading';
 
 const Forecast = () => {
   return (
     <View>
-      <Text>ForeCast</Text>
+      <Heading>ForeCast</Heading>
     </View>
   )
 }

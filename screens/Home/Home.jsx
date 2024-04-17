@@ -7,10 +7,10 @@ import {
 } from "expo-location";
 import { useEffect, useState } from "react";
 import WeatherAPI from "../../api/weather";
-import TextWrapper from "../../components/TextWrapper/TextWrapper";
 import BasicWeather from "../../components/BasicWeather/BasicWeather";
 import WeatherAdvanced from "../../components/WeatherAdvanced/WeatherAdvanced";
 import { useNavigation } from "@react-navigation/native";
+import Searchbar from "../../components/Searchbar/Searchbar";
 const Home = () => {
   const [coords, setCoords] = useState(null);
   const [weatherData, setWeatherData] = useState({
@@ -91,10 +91,7 @@ const Home = () => {
           weatherLocation={weatherLocation}
         />
       </View>
-
-      <View style={s.searchContainer}>
-        <TextWrapper>Home Body Search Bar</TextWrapper>
-      </View>
+      <Searchbar />
       <WeatherAdvanced
         dailyData={weatherData.daily}
         wind={weatherData.current_weather.windspeed}

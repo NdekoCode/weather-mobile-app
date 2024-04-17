@@ -32,4 +32,17 @@ export default class WeatherAPI {
       }
     }
   }
+  static async fetchCoordsFromCity(city = null) {
+    if (city !== null) {
+      const URL = `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=en&format=json`;
+      console.log(URL);
+      try {
+        const { results } = (await axios.get(URL)).data || [];
+        const data = results[0];
+        return { latitude: data.latitude, longitude: data.longitude };
+      } catch (error) {
+        throw new Error(`No details found for search ${city || ""}`);
+      }
+    }
+  }
 }

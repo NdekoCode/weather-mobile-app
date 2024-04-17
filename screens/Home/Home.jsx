@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import { s } from "./home.style";
 // Pour demander les permissions quand l'application est lancer.
 import {
@@ -36,7 +36,20 @@ const Home = () => {
       setCoords({ latitude: -4.33, longitude: 15.30935141211334 });
     }
   };
+  const onSubmit = async (city) => {
+    await fetchCoordsByCity(city);
+  };
 
+  const fetchCoordsByCity = async (city) => {
+    try {
+      const data = await WeatherAPI.fetchCoordsFromCity(city);
+      if (data) {
+        setCoords(data);
+      }
+    } catch (error) {
+      Alert.alert("Oups !", error.message);
+    }
+  };
   const fetchWeather = async () => {
     const data = await WeatherAPI.fetchWeatherFromCoords(coords);
     if (data) {
@@ -91,7 +104,7 @@ const Home = () => {
           weatherLocation={weatherLocation}
         />
       </View>
-      <Searchbar />
+      <Searchbar onSubmit={onSubmit} />
       <WeatherAdvanced
         dailyData={weatherData.daily}
         wind={weatherData.current_weather.windspeed}

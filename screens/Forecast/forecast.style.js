@@ -11,6 +11,10 @@ const s = StyleSheet.create({
         flex:1,
         alignItems:'center',
         marginRight:50
+    },
+    forecastBody:{
+        marginTop:50,
+        marginHorizontal:20
     }
 });
 export { s };

@@ -3,7 +3,7 @@ import TextWrapper from "../TextWrapper/TextWrapper";
 import { s } from "./basicWeather.style";
 import { getWeatherInterpretation } from "../../services/weather.service";
 import Clock from "../Clock/Clock";
-const BasicWeather = ({onPress, basicWeatherData, weatherLocation }) => {
+const BasicWeather = ({ onPress, basicWeatherData, weatherLocation }) => {
   const temperature = basicWeatherData.temperature;
   const weatherCode = getWeatherInterpretation(basicWeatherData.weathercode);
   return (

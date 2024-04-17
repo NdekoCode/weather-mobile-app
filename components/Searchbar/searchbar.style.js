@@ -13,7 +13,8 @@ const s = StyleSheet.create({
     borderRadius: 50,
     fontSize:15,
     fontWeight:'500',
-    shadowColor: "#acacac",
+    fontFamily:'Alata-Regular',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 4,

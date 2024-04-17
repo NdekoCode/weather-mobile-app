@@ -1,13 +1,13 @@
 import { TextInput, View } from "react-native";
 import { s } from "./searchbar.style";
-const Searchbar = (value, onSearch) => {
+const Searchbar = (onSubmit) => {
   return (
     <View style={s.searchContainer}>
       <TextInput
-        value={value}
-        placeholder="Chercher une ville... Ex:Kinshasa" placeholderTextColor={"#999"}
+        placeholder="Chercher une ville... Ex:Kinshasa"
+        placeholderTextColor={"#999"}
         style={s.searchInput}
-        onChangeText={onSearch}
+        onSubmitEditing={onSubmit}
       />
     </View>
   );

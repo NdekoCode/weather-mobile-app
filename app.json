@@ -32,6 +32,12 @@
         "projectId": "368b7b9b-f52a-4c76-b671-f8d1bc2fe9b9"
       }
     },
-    "owner": "ndekocode"
+    "owner": "ndekocode",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/368b7b9b-f52a-4c76-b671-f8d1bc2fe9b9"
+    }
   }
 }

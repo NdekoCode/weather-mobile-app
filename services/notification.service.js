@@ -1,6 +1,6 @@
 export async function sendPushNotification(expoPushToken) {
   const message = {
-    to: token,
+    to: expoPushToken,
     title: "Info Meteo",
     body: "Hello, we hope the weather's fine",
     sound: "default",
